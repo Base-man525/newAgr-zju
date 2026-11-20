@@ -1,0 +1,195 @@
+/* 站点视觉变量：浅色模式采用纸张与校园绿配色 */
+:root {
+  --md-primary-fg-color: #146c5a;
+  --md-primary-fg-color--light: #2f8f78;
+  --md-primary-fg-color--dark: #0d4c40;
+  --md-accent-fg-color: #c56a18;
+  --site-paper: #f7f4ec;
+  --site-ink: #1c2b27;
+  --site-soft-green: #dbe9df;
+  --site-warm-line: #d8cbb9;
+  --site-card-shadow: 0 16px 42px rgba(35, 55, 47, 0.09);
+}
+
+/* 深色模式保留同一套语义，但降低纸张亮度 */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #2f8f78;
+  --md-primary-fg-color--light: #62ad97;
+  --md-primary-fg-color--dark: #146c5a;
+  --md-accent-fg-color: #f0a44f;
+  --site-paper: #17231f;
+  --site-ink: #edf5f1;
+  --site-soft-green: #243a32;
+  --site-warm-line: #40544c;
+  --site-card-shadow: 0 18px 48px rgba(0, 0, 0, 0.26);
+}
+
+/* 页面底色与正文阅读宽度 */
+body {
+  background:
+    radial-gradient(circle at 8% 4%, rgba(47, 143, 120, 0.12), transparent 24rem),
+    linear-gradient(180deg, var(--site-paper), var(--md-default-bg-color));
+}
+
+.md-content__inner {
+  max-width: 52rem;
+}
+
+.md-typeset {
+  color: var(--site-ink);
+  line-height: 1.9;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: var(--site-ink);
+  letter-spacing: -0.015em;
+}
+
+.md-typeset h1 {
+  font-weight: 800;
+}
+
+.site-announcement {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #fff;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.md-banner {
+  background-color: var(--md-primary-fg-color--dark);
+  color: #fff;
+}
+
+.site-announcement::before {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: currentColor;
+  content: "";
+}
+
+/* 首页首屏：即使没有 JavaScript 也能完整呈现 */
+.class-hero {
+  position: relative;
+  overflow: hidden;
+  margin: 0.5rem 0 2rem;
+  padding: clamp(1.5rem, 5vw, 3.4rem);
+  border: 1px solid var(--site-warm-line);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(130deg, rgba(20, 108, 90, 0.93), rgba(13, 76, 64, 0.78)),
+    var(--site-soft-green);
+  box-shadow: var(--site-card-shadow);
+  color: #fff;
+}
+
+.class-hero::after {
+  position: absolute;
+  top: -6rem;
+  right: -4rem;
+  width: 18rem;
+  height: 18rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2.5rem rgba(255, 255, 255, 0.05),
+    0 0 0 5rem rgba(255, 255, 255, 0.04);
+  content: "";
+}
+
+.class-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.class-hero h1 {
+  max-width: 15em;
+  margin: 0.35rem 0 0.7rem;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.12;
+}
+
+.class-hero p {
+  max-width: 38rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1rem;
+}
+
+.class-hero .hero-kicker {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.class-hero .md-button {
+  margin-top: 0.8rem;
+  border-color: rgba(255, 255, 255, 0.52);
+  color: #fff;
+}
+
+.class-hero .md-button:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* 页面内的信息条与卡片统一使用轻边框 */
+.class-note {
+  margin: 1.4rem 0;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--md-primary-fg-color);
+  border-radius: 0 0.65rem 0.65rem 0;
+  background: var(--site-soft-green);
+}
+
+.md-typeset .grid.cards > ul > li {
+  border: 1px solid var(--site-warm-line);
+  border-radius: 0.9rem;
+  box-shadow: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: var(--site-card-shadow);
+  transform: translateY(-2px);
+}
+
+/* 小屏幕下减少装饰和留白，保留内容密度 */
+@media screen and (max-width: 44.984375em) {
+  .class-hero {
+    padding: 1.4rem;
+    border-radius: 0.9rem;
+  }
+
+  .class-hero::after {
+    display: none;
+  }
+
+  .md-content__inner {
+    padding-right: 0.15rem;
+    padding-left: 0.15rem;
+  }
+}
+
+/* 遵循系统的减少动态效果偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .grid.cards > ul > li {
+    transition: none;
+  }
+
+  .md-typeset .grid.cards > ul > li:hover {
+    transform: none;
+  }
+}
