@@ -1,0 +1,18 @@
+[project]
+name = "newagr-zju-website"
+version = "0.1.0"
+description = "newAgr-zju 班级网站"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Base-man525" },
+]
+dependencies = [
+  "mkdocs>=1.6,<2",
+  "mkdocs-material>=9.6,<10",
+  "mkdocs-heti-plugin>=0.1.6,<0.2",
+]
+
+[tool.uv]
+package = false

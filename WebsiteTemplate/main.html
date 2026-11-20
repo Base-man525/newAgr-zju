@@ -1,0 +1,31 @@
+<!--
+  站点主模板入口。
+  MkDocs 的 Python 渲染器会加载本文件，并把 docs 中 Markdown 的渲染结果
+  注入 Material 的 content 区块。需要自定义页面结构时，可继续覆盖 base.html
+  中提供的 Jinja block。
+-->
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <meta name="theme-color" content="#146c5a">
+  <meta property="og:site_name" content="{{ config.site_name }}" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": {{ config.site_name | tojson }},
+      "url": {{ config.site_url | tojson }},
+      "author": {
+        "@type": "Person",
+        "name": {{ config.site_author | tojson }}
+      }
+    }
+  </script>
+{% endblock %}
+
+{% block announce %}
+  <span class="site-announcement">
+    班级内容持续更新；当前页面为可替换的站点示例。
+  </span>
+{% endblock %}

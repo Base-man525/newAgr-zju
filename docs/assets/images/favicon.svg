@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">班级网站图标</title>
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#207c62"/>
+      <stop offset="1" stop-color="#0f513f"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <path d="M32 50c-2-14 3-28 18-38 0 17-6 31-18 38Z" fill="#f6f0c2"/>
+  <path d="M32 50c-10-6-16-17-17-32 12 5 18 16 17 32Z" fill="#bde6b3"/>
+  <path d="M32 50c0-9 2-17 7-26M32 50c-3-7-8-13-14-18" fill="none" stroke="#0f513f" stroke-linecap="round" stroke-width="2.5"/>
+</svg>

@@ -1,0 +1,97 @@
+# 班级网站主配置：Markdown 内容统一放在 docs 目录
+site_name: newAgr-zju 班级网站
+site_description: 面向班级成员的公开信息、活动记录与资料归档站点
+site_author: Base-man525
+site_url: https://newagr-zju.github.io/newAgr-zju/
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+# 版权信息中的年份在内容更新后可手动调整
+copyright: Copyright &copy; 2026 Base-man525 · newAgr-zju
+
+theme:
+  name: material
+  custom_dir: WebsiteTemplate
+  language: zh
+  logo: assets/images/logo.svg
+  favicon: assets/images/favicon.svg
+  font: false
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.path
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - announce.dismiss
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到深色模式
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: 切换到浅色模式
+  icon:
+    repo: fontawesome/brands/github
+
+# 如仓库地址发生变化，只需修改这里
+repo_url: https://github.com/newAgr-zju/newAgr-zju
+repo_name: newAgr-zju/newAgr-zju
+edit_uri: edit/main/docs/
+
+plugins:
+  - search:
+      lang:
+        - zh
+  - heti:
+      # 本地预览也执行中文排版，保证与发布结果一致
+      disable_serve: false
+      root_selector: article.md-content__inner
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra:
+  generator: false
+
+nav:
+  - 首页: index.md
+  - 班级:
+      - 班级概览: class/index.md
+      - 公告栏: notices/index.md
+  - 成员: members/index.md
+  - 活动: activities/index.md
+  - 资料归档: archive/index.md
+  - 关于:
+      - 关于本站: about/index.md
+      - 内容维护指南: guide/index.md
